@@ -10,20 +10,51 @@ import static junit.framework.TestCase.fail;
 import static org.junit.Assert.assertEquals;
 
 public class RubricTest {
-    Criterion criteria1 = new Criterion("Design",0);
-    Criterion criteria2 = new Criterion("Implementation",0);
-    Criterion criteria3 = new Criterion("Testing",0);
+    Criterion criterion1 = new Criterion("Design",0);
+    Criterion criterion2 = new Criterion("Implementation",0);
+    Criterion criterion3 = new Criterion("Testing",0);
+
+    @Test
+    public void testSetTopic(){
+        ArrayList<Criterion> criteria = new ArrayList<Criterion>();
+        criteria.add(criterion1);
+        criteria.add(criterion2);
+        criteria.add(criterion3);
+
+        Rubric unitTest = new Rubric("Maths",criteria);
+
+        try{
+            unitTest.setTopic(null);
+            fail();
+        }catch(NullPointerException ex){
+            assertEquals("Topic cannot be null", ex.getMessage());
+        }
+
+        unitTest.setTopic("English");
+    }
+
+    @Test
+    public void testGetTopic(){
+        ArrayList<Criterion> criteria = new ArrayList<Criterion>();
+        criteria.add(criterion1);
+        criteria.add(criterion2);
+        criteria.add(criterion3);
+
+        Rubric unitTest = new Rubric("Maths",criteria);
+
+        assertEquals(unitTest.getTopic(),"Maths");
+    }
 
 
     @Test
     public void testSetRubric(){
-        ArrayList<Criterion> criterion = new ArrayList<Criterion>();
-        ArrayList<Criterion> criterion2 = new ArrayList<Criterion>();
-        criterion.add(criteria1);
-        criterion.add(criteria2);
-        criterion.add(criteria3);
+        ArrayList<Criterion> criteria = new ArrayList<Criterion>();
+        ArrayList<Criterion> criteria2 = new ArrayList<Criterion>();
+        criteria.add(criterion1);
+        criteria.add(criterion2);
+        criteria.add(criterion3);
 
-        Rubric unitTest = new Rubric(criterion);
+        Rubric unitTest = new Rubric("Maths",criteria);
         try{
             unitTest.setCriteria(null);
             fail();
@@ -32,40 +63,40 @@ public class RubricTest {
         }
 
         for(int x = 0; x < 12; x++){
-            criterion2.add(criteria1);
+            criteria2.add(criterion1);
         }
 
         try{
-            unitTest.setCriteria(criterion2);
+            unitTest.setCriteria(criteria2);
             fail();
         }catch(ArrayIndexOutOfBoundsException ex){
             assertEquals("Value out of bounds", ex.getMessage());
         }
 
-        unitTest.setCriteria(criterion);
+        unitTest.setCriteria(criteria);
     }
 
     @Test
     public void testGetRubric(){
-        ArrayList<Criterion> criterion = new ArrayList<Criterion>();
-        criterion.add(criteria1);
-        criterion.add(criteria2);
-        criterion.add(criteria3);
+        ArrayList<Criterion> criteria = new ArrayList<Criterion>();
+        criteria.add(criterion1);
+        criteria.add(criterion2);
+        criteria.add(criterion3);
 
-        Rubric unitTest = new Rubric(criterion);
+        Rubric unitTest = new Rubric("Maths",criteria);
 
-        assertEquals(unitTest.getCriteria(),criterion);
+        assertEquals(unitTest.getCriteria(),criteria);
     }
 
     @Test
     public void testAddRubric(){
-        ArrayList<Criterion> criterion = new ArrayList<Criterion>();
-        ArrayList<Criterion> criterion2 = new ArrayList<Criterion>();
-        criterion.add(criteria1);
-        criterion.add(criteria2);
-        criterion.add(criteria3);
+        ArrayList<Criterion> criteria = new ArrayList<Criterion>();
+        ArrayList<Criterion> criteria2 = new ArrayList<Criterion>();
+        criteria.add(criterion1);
+        criteria.add(criterion2);
+        criteria.add(criterion3);
 
-        Rubric unitTest = new Rubric(criterion);
+        Rubric unitTest = new Rubric("Maths",criteria);
         try{
             unitTest.addCriteria(null);
             fail();
@@ -73,18 +104,18 @@ public class RubricTest {
             assertEquals("Criteria cannot be null", ex.getMessage());
         }
 
-        unitTest.addCriteria(criteria1);
+        unitTest.addCriteria(criterion1);
 
         for(int x = 0; x < 10; x++){
-            criterion2.add(criteria1);
+            criteria2.add(criterion1);
         }
-        unitTest.setCriteria(criterion2);
+        unitTest.setCriteria(criteria);
         try{
-            unitTest.addCriteria(criteria1);
+            unitTest.addCriteria(criterion1);
             fail();
         }catch(ArrayIndexOutOfBoundsException ex){
             assertEquals("Value out of bounds", ex.getMessage());
         }
-
     }
+
 }

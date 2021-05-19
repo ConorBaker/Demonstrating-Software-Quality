@@ -3,10 +3,25 @@ package main;
 import java.util.ArrayList;
 
 public class Rubric {
+    String topic;
     ArrayList<Criterion> Criteria = new ArrayList<>();
 
-    public Rubric(ArrayList<Criterion> criteria) {
+    public Rubric(String topic, ArrayList<Criterion> criteria) {
+        this.topic = topic;
         this.Criteria = criteria;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        if(topic != null){
+            this.topic = topic;
+        }else{
+            throw new NullPointerException("Topic cannot be null");
+        }
+
     }
 
     public ArrayList<Criterion> getCriteria() {
@@ -21,9 +36,6 @@ public class Rubric {
         }else{
             this.Criteria = criteria;
         }
-
-
-
     }
 
     public void addCriteria(Criterion criteria){
