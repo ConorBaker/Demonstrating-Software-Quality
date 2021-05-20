@@ -98,7 +98,7 @@ public class StudentTest {
         Student unitTest = new Student("John Green", rubrics);
 
         try{
-            unitTest.addRubrics(rubric);
+            unitTest.addRubrics(null);
             fail();
         }catch (NullPointerException ex){
             assertEquals("Rubric cannot be null", ex.getMessage());
