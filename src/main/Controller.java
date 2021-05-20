@@ -38,8 +38,8 @@ public class Controller {
     }
 
     public void setGrade(Student student, String topic, String criterion, int grade) {
-        Rubric rubric = student.getARubric(topic);
-        Criterion criteria = rubric.getACriterion(rubric, criterion);
+        Rubric rubric = student.getARubric(topic,student.getRubrics());
+        Criterion criteria = rubric.getACriterion(rubric.getCriteria(), criterion);
         criteria.setScore(grade);
     }
 }

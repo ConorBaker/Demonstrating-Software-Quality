@@ -28,6 +28,16 @@ public class Rubric {
         return Criteria;
     }
 
+    public Criterion getACriterion(ArrayList<Criterion> criteria, String criterion){
+        Criterion crit = new Criterion("",0);
+        for(int i = 0; i < criteria.size(); i++){
+            if(criteria.get(i).getTitle() == criterion){
+                crit = criteria.get(i);
+            }
+        }
+        return crit;
+    }
+
     public void setCriteria(ArrayList<Criterion> criteria) {
         if(criteria == null){
             throw new NullPointerException("Criteria cannot be null");

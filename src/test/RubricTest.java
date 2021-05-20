@@ -118,4 +118,17 @@ public class RubricTest {
         }
     }
 
+    @Test
+    public void testGetACriterion(){
+        ArrayList<Criterion> criteria = new ArrayList<Criterion>();
+        criteria.add(criterion1);
+        criteria.add(criterion2);
+        criteria.add(criterion3);
+
+        Rubric unitTest = new Rubric("Maths",criteria);
+
+        assertEquals(criterion1.getTitle(),unitTest.getACriterion(criteria,"Design").getTitle());
+
+    }
+
 }
