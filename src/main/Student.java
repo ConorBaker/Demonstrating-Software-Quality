@@ -28,6 +28,16 @@ public class Student {
         return rubrics;
     }
 
+    public Rubric getARubric(String topic, ArrayList<Rubric> rubrics) {
+        Rubric rubric = new Rubric("", new ArrayList<>());
+        for (int x = 0; x < rubrics.size(); x++) {
+            if (rubrics.get(x).getTopic() == topic) {
+                rubric = rubrics.get(x);
+            }
+        }
+        return rubric;
+    }
+
     public void setRubrics(ArrayList<Rubric> rubrics) {
         if (rubrics != null) {
             this.rubrics = rubrics;
@@ -38,9 +48,9 @@ public class Student {
     }
 
     public void addRubrics(Rubric rubric) {
-        if(rubric != null){
+        if (rubric != null) {
             this.rubrics.add(rubric);
-        }else{
+        } else {
             throw new NullPointerException("Rubric cannot be null");
         }
 

@@ -132,8 +132,8 @@ public class ControllerTest {
         unitTest.setGrade(student,"Maths","Design",3);
         unitTest.setGrade(student2,"Maths","Design",5);
 
-        assertNotEquals(student.getARubric("Maths").getACriterion(student.getARubric("Maths"),"Design").getScore(),
-                student2.getARubric("Maths").getACriterion(student2.getARubric("Maths"),"Design").getScore());
+        assertNotEquals(student.getARubric("Maths",student.getRubrics()).getACriterion(student.getARubric("Maths",student.getRubrics()).getCriteria(),"Design").getScore(),
+                student2.getARubric("Maths",student2.getRubrics()).getACriterion(student2.getARubric("Maths",student2.getRubrics()).getCriteria(),"Design").getScore());
 
     }
 
