@@ -78,6 +78,34 @@ The branches i used were,
 5. Student
 6. Summary_Calculations
 7. Caller
+
+
+## Code - Review Checklist
+<br>
+
+When code reviewing a pull request there are five main things that should be taken into consideration.
+
+<br>
+
+### Code Design
+This is the review of how well a bit of code is designed. This is something only a human can do and ensures that the change list makes sense and that the code belongs where its been put.
+
+<br>
+
+### Test Coverage
+This is the review of how much of the code has been covered with tests correctly. This is important as it makes sure that the code being added has been tested and works as intended.
+
+<br>
+
+### Readability
+This is the review of how easy the code submitted is to understand. While the code might make sense to someone who has written it its important that others understand it too.
+
+<br>
+
+### Documentation
+This is the review of how well code has been documented. Its important for code to documented as its written as this is far more accurate than trying to document it at a later date.
+
+[Here](https://github.com/ConorBaker/Demonstrating-Software-Quality/commit/07788efa997ebc5917d5adc95e0004d48fd722c8#diff-32d49112ca8c65ad226a8128c3e567e8f354468efde24c10ed9dcb7980e2387c "Github Commit") you can see a commit that I code reviewed.
    
 
 
