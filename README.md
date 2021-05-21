@@ -83,7 +83,7 @@ The branches i used were,
 ## Code - Review Checklist
 <br>
 
-When code reviewing a pull request there are five main things that should be taken into consideration.
+When code reviewing a pull request there are four main things that should be taken into consideration.
 
 <br>
 
