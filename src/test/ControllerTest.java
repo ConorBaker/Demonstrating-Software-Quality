@@ -7,6 +7,7 @@ import main.Student;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -133,6 +134,36 @@ public class ControllerTest {
 
         assertNotEquals(student.getARubric("Maths",student.getRubrics()).getACriterion(student.getARubric("Maths",student.getRubrics()).getCriteria(),"Design").getScore(),
                 student2.getARubric("Maths",student2.getRubrics()).getACriterion(student2.getARubric("Maths",student2.getRubrics()).getCriteria(),"Design").getScore());
+
+    }
+
+    @Test
+    public void testGetAllGrades(){
+        ArrayList<Rubric> rubrics = new ArrayList<>();
+        ArrayList<Student> students = new ArrayList<>();
+        Controller unitTest = new Controller();
+
+        ArrayList<Criterion> criteria = new ArrayList<>();
+
+        criteria.add(Design);
+        criteria.add(Implementation);
+        criteria.add(Testing);
+
+        Rubric rubric = new Rubric("Maths",criteria);
+
+        rubrics.add(rubric);
+
+        Student student = new Student("Una", rubrics);
+        students.add(student);
+
+        unitTest.setGrade(student,"Maths","Design",3);
+        unitTest.setGrade(student,"Maths","Implementation",4);
+        unitTest.setGrade(student,"Maths","Testing",3);
+
+        HashMap<String, Integer> grade = new HashMap<>();
+        grade.put("Una",10);
+        assertEquals(grade,unitTest.getAllGrades(students,rubric));
+
 
     }
 
@@ -434,9 +465,4 @@ public class ControllerTest {
 
         assertEquals(3,unitTest.calculateMaxRubricAndCriterion(students,"Maths","Design"));
     }
-
-
-
-
-
 }

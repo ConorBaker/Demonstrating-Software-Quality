@@ -1,5 +1,6 @@
 package test;
 
+import main.Controller;
 import main.Criterion;
 import main.Rubric;
 import main.Student;
@@ -125,5 +126,28 @@ public class StudentTest {
         assertEquals(rubric,unitTest.getARubric("Maths",rubrics));
 
     }
+
+    @Test
+    public void testGetAGrade(){
+        ArrayList<Rubric> rubrics = new ArrayList<>();
+        Controller unitTest = new Controller();
+        ArrayList<Criterion> criteria = new ArrayList<>();
+        criteria.add(criteria1);
+        criteria.add(criteria2);
+        criteria.add(criteria3);
+
+        Rubric rubric = new Rubric("Maths",criteria);
+        rubrics.add(rubric);
+
+        Student student = new Student("Una", rubrics);
+
+
+        unitTest.setGrade(student,"Maths","Design",3);
+        unitTest.setGrade(student,"Maths","Implementation",4);
+        unitTest.setGrade(student,"Maths","Testing",2);
+
+        assertEquals(9,student.getGrade(rubric));
+    }
+
 
 }

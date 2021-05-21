@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Controller {
 
@@ -37,10 +38,21 @@ public class Controller {
         student.addRubrics(rubric);
     }
 
+
+
+
     public void setGrade(Student student, String topic, String criterion, int grade) {
         Rubric rubric = student.getARubric(topic,student.getRubrics());
         Criterion criteria = rubric.getACriterion(rubric.getCriteria(), criterion);
         criteria.setScore(grade);
+    }
+
+    public HashMap getAllGrades(ArrayList<Student> students, Rubric rubric){
+        HashMap<String, Integer> StudentGrades = new HashMap<>();
+        for(int x = 0; x < students.size(); x++){
+            StudentGrades.put(students.get(x).getName(),students.get(x).getGrade(rubric));
+        }
+        return StudentGrades;
     }
 
 
@@ -245,8 +257,5 @@ public class Controller {
         }
         return high;
     }
-
-
-
 
 }

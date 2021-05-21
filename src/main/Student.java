@@ -53,6 +53,21 @@ public class Student {
         } else {
             throw new NullPointerException("Rubric cannot be null");
         }
-
     }
+
+    public int getGrade(Rubric rubric){
+        ArrayList<Rubric> rubrics = this.rubrics;
+        int grade = 0;
+        for(int x = 0; x < rubrics.size(); x++){
+            if(rubrics.get(x).getTopic() == rubric.getTopic()){
+                ArrayList<Criterion> criteria = rubrics.get(x).getCriteria();
+                for(int y = 0; y < criteria.size(); y++){
+                    grade = grade + criteria.get(y).getScore();
+                }
+            }
+        }
+        return grade;
+    }
+
+
 }
