@@ -27,7 +27,7 @@ public class Criterion {
     }
 
     public void setScore(int score) {
-        if(score > 0 && score < 6){
+        if(score >= 0 && score < 6){
             this.score = score;
         }else{
             throw new ArithmeticException("Value out of bounds");
